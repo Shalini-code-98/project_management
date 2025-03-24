@@ -1,35 +1,48 @@
-import { useState } from 'react' 
+import { useEffect, useRef } from 'react';
 import './App.css'
-import { BrowserRouter as Router , Route ,Routes } from "react-router-dom";
-//import SideBar from './components/SideBar';
 import Contracts from './pages/Contracts';
 import Dashboard from './pages/Dashboard';
 import Invoice from './pages/Invoice';
 import Projects from './pages/Projects';
 import Tasks from './pages/Tasks';
-import Tickets from './pages/Tickets';
 import Team from './pages/Team';
-import NavBar from './components/NavBar';
+import Tickets from './pages/Tickets';
+import Clients from './pages/Clients';
+import Company from './pages/Company';
+import Deals from './pages/Deals';
+import Leads from './pages/Leads';
+import Sales from './pages/Sales';
+import { BrowserRouter, Routes, Route, useLocation } from "react-router";
+import LoadingBar from 'react-top-loading-bar';
 
+function App() {
+  
+  
+  // const location = useLocation();
 
+  
 
-//import { BrowserRouter,Route,Routes } from "react-router-dom";
-function App(){
+  return (
+    <BrowserRouter>
+      <Routes>
+    
+        <Route path='/'  element = {<Dashboard/>}/>
+        <Route path='/projects'  element = {<Projects/>}/>
+        <Route path='/tasks'  element = {<Tasks/>}/>
+        <Route path='/contracts'  element = {<Contracts/>}/>
+        <Route path='/invoice'  element = {<Invoice/>}/>
+        <Route path='/team'  element = {<Team/>}/>
+        <Route path='/tickets'  element = {<Tickets/>}/>
+        <Route path='/clients'  element = {<Clients/>}/>
+        <Route path='/company'  element = {<Company/>}/>
+        <Route path='deals'  element = {<Deals/>}/>
+        <Route path='leads'  element = {<Leads/>}/>
+        <Route path='sales'  element = {<Sales/>}/>
 
-  return(
-    <Router>
-      <NavBar/>
-    <Routes>
-      <Route path ='/'element={<Dashboard/>}/>
-      <Route path ='/projects'element={<Projects/>}/>
-      <Route path ='/tasks'element={<Tasks/>}/>
-      <Route path ='/contracts'element={<Contracts/>}/>
-      <Route path ='/tickets'element={<Tickets/>}/>
-      <Route path ='/invoice'element={<Invoice/>}/>
-      <Route path ='/team'element={<Team/>}/>
-    </Routes>
-    </Router>
-  );
-};
+        {/* <Route path='/c'  element = {<Contracts/>}/> */}
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
 export default App
